@@ -41,6 +41,10 @@
   background: url('assets/cat-hero.jpg') no-repeat center center/cover;
   position: relative;
   padding-top: 80px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Prevent horizontal overflow from toys */
 }
 
 .hero-overlay {
@@ -60,6 +64,11 @@
   justify-content: center;
   min-height: 80vh;
   position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .hero-card {
@@ -68,9 +77,11 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
   max-width: 600px;
+  width: 100%;
   text-align: center;
   z-index: 1;
   position: relative;
+  box-sizing: border-box;
 }
 
 .hero-title-box {
@@ -108,19 +119,19 @@
 
 .toy1 {
   top: 10%;
-  left: 3%;
+  left: clamp(5px, 3%, 20px); /* Constrain to stay within viewport */
   animation-delay: 0s;
 }
 
 .toy2 {
   top: 60%;
-  right: 15%;
+  right: clamp(5px, 3%, 20px);
   animation-delay: 1s;
 }
 
 .toy3 {
   bottom: 15%;
-  left: 20%;
+  left: clamp(5px, 3%, 20px);
   animation-delay: 2s;
 }
 
@@ -136,24 +147,36 @@
 
 @media (max-width: 768px) {
   .hero-toy {
-    display: none;
+    display: none; /* Already hidden, prevents overflow */
   }
   .hero-title-box {
     animation: none;
   }
   .hero-card {
-    width: 90%;
+    width: 100%;
+    max-width: 90%;
+    padding: 15px;
+  }
+  .hero-content {
+    padding: 0 10px; /* Match about.html mobile padding */
   }
 }
 
 /* About Us Section */
 #about {
   position: relative;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .about-content {
   display: flex;
   gap: 20px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .about-image, .about-text {
@@ -166,6 +189,7 @@
 
 .about-image img {
   width: 100%;
+  max-width: 100%;
   border-radius: 5px;
 }
 
@@ -186,10 +210,10 @@
 
 @keyframes floatRandom {
   0% { transform: translate(0, 0); }
-  20% { transform: translate(60%, 20%); }
-  40% { transform: translate(20%, 70%); }
-  60% { transform: translate(80%, 50%); }
-  80% { transform: translate(40%, 30%); }
+  20% { transform: translate(50%, 20%); } /* Reduced from 60% to stay within bounds */
+  40% { transform: translate(20%, 50%); } /* Reduced from 70% */
+  60% { transform: translate(50%, 30%); } /* Reduced from 80%, 50% */
+  80% { transform: translate(30%, 20%); } /* Reduced from 40%, 30% */
   100% { transform: translate(0, 0); }
 }
 
@@ -197,12 +221,13 @@
   .about-content {
     flex-direction: column;
     text-align: center;
+    padding: 0 10px;
   }
   .about-image img {
     max-width: 100%;
   }
   .about-toy {
-    display: none;
+    display: none; /* Already hidden, prevents overflow */
   }
   .section-title {
     text-align: center;
@@ -212,7 +237,9 @@
 /* Services Section */
 #services {
   text-align: center;
-  padding: 50px 0;
+  padding: 50px 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .service-grid {
@@ -220,19 +247,21 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
-  width: 100%; /* Ensure it takes full container width */
-  box-sizing: border-box; /* Include padding in width calculation */
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .service-card.card {
   border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(231, 76, 60, 0.3);
+  box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3); /* Reduced spread from 20px to 10px */
   padding: 20px;
   background: #fff;
   transition: transform 0.3s ease;
-  width: 100%; /* Ensure card fills its grid cell */
-  box-sizing: border-box; /* Include padding in width */
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .service-card.card:hover {
@@ -274,30 +303,41 @@
   }
   .service-grid {
     grid-template-columns: 1fr;
+    padding: 0 10px;
+  }
+  #services {
+    padding: 50px 10px;
   }
 }
 
 /* Facts Section */
 #facts {
   position: relative;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .facts-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
-  width: 100%; /* Ensure it fills container */
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .fact-card {
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  width: 100%; /* Fill grid cell */
+  width: 100%;
   position: relative;
   text-align: center;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 .fact-card:nth-child(1) {
@@ -325,6 +365,7 @@
 
 .fact-image img {
   width: 100%;
+  max-width: 100%;
   height: 150px;
   object-fit: cover;
   border-radius: 5px;
@@ -368,6 +409,7 @@
 @media (max-width: 768px) {
   .facts-content {
     grid-template-columns: 1fr;
+    padding: 0 10px;
   }
   .fact-card {
     width: 100%;
@@ -380,23 +422,33 @@
 /* Image Gallery Section */
 #gallery {
   text-align: center;
+  padding: 50px 20px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden; /* Clip hover transform overflow */
 }
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Reduced from 200px for narrower columns */
   gap: 15px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .gallery-img {
   width: 100%;
+  max-width: 100%;
   object-fit: cover;
   border-radius: 5px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .gallery-img:hover {
-  transform: scale(1.05);
+  transform: scale(1.03); /* Reduced from 1.05 to minimize overflow */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -410,16 +462,22 @@
 @media (max-width: 768px) {
   .gallery-grid {
     grid-template-columns: 1fr;
+    padding: 0 10px;
   }
   .gallery-img {
     height: auto;
     max-height: 200px;
+  }
+  #gallery {
+    padding: 50px 10px;
   }
 }
 
 /* Testimonials Section */
 #testimonials {
   position: relative;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .testimonial-overlay {
@@ -434,13 +492,18 @@
 
 .testimonial-slider {
   position: relative;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .testimonial-item {
   background: #fff;
   border-radius: 10px;
   padding: 20px;
-  margin: 10px;
+  margin: 10px 0; /* Adjusted to avoid horizontal overflow */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -464,8 +527,8 @@
 }
 
 @media (max-width: 768px) {
-  .testimonial-item {
-    margin: 10px 0;
+  .testimonial-slider {
+    padding: 0 10px;
   }
 }
 
@@ -484,7 +547,9 @@
 @media (max-width: 768px) {
   #contact-button {
     display: block; /* Visible only on mobile */
-    padding-bottom: 30px; /* Adjusted to match the 50px effective gap between sections */
+    padding-bottom: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 
