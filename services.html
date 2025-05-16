@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veterinary Clinic - Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="services-styles.css">
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+  <script src="script.js"></script>
+  <script src="services-script.js"></script>
+</head>
+  <nav>
+    <div class="logo">
+        <img src="assets/chananel_vet-logo.png" alt="Chananel Veterinary Clinic Logo">
+    </div>
+    <div class="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="branches.html">Branches</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+</nav>
+
+  <main>
+    <section class="services">
+      <h1>Our Services</h1>
+      <div class="service-cards">
+        <div class="card" data-service="birds">
+          <img src="assets/birds.jpg" alt="Birds">
+          <h3>Birds</h3>
+        </div>
+        <div class="card" data-service="exotic-animals">
+          <img src="assets/exotic.jpeg" alt="Exotic Animals">
+          <h3>Exotic Animals</h3>
+        </div>
+        <div class="card" data-service="large-animals">
+          <img src="assets/Big-five-animals.jpg" alt="Large Animals">
+          <h3>Large Animals</h3>
+        </div>
+        <div class="card" data-service="grooming-surgery">
+          <img src="assets/grooming.jpeg" alt="Pet Grooming & Surgery">
+          <h3>Pet Grooming & Surgery</h3>
+        </div>
+        <div class="card" data-service="consultation">
+          <img src="assets/consultation.jpeg" alt="Consultation & Advice">
+          <h3>Consultation & Advice</h3>
+        </div>
+         <div class="card" data-service="all-services">
+          <img src="assets/veterinary-consultation.jpg" alt="All Veterinary Services">
+          <h3>All Veterinary Services</h3>
+        </div>
+      </div>
+      <div id="service-modal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeServiceModal()">×</span>
+          <p class="service-modal-text"></p>
+          <div class="modal-button-container">
+            <a href="contact.html" class="btn">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <p>© 2025 Chananel Vet. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">×</span>
+      <p>Contact us for all veterinary services.</p>
+      <a href="contact.html" class="btn">Contact Us</a>
+    </div>
+  </div>
+</body>
+</html>
